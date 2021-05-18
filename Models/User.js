@@ -26,19 +26,19 @@ function bookCollection() {
             {
                 name: 'The Great Gatsby',
                 description: `The Great Gatsby is a 1925 novel by American writer F. Scott Fitzgerald. Set in the Jazz Age on Long Island, the novel depicts narrator Nick Carraway's interactions with mysterious millionaire Jay Gatsby and Gatsby's obsession to reunite with his former lover, Daisy Buchanan`,
-                status: '',
+                status: 'Completed',
                 image: `https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg/220px-The_Great_Gatsby_Cover_1925_Retouched.jpg`,
             },
             {
                 name: 'And Then There Were None',
                 description: `And Then There Were None is a mystery novel by the English writer Agatha Christie, described by her as the most difficult of her books to write.It was first published in the United Kingdom by the Collins Crime Club on 6 November 1939, as Ten Little Niggers, after the children's counting rhyme and minstrel song, which serves as a major element of the plot.`,
-                status: '',
+                status: 'Completed',
                 image: `https://images-na.ssl-images-amazon.com/images/I/81B9LhCS2AL.jpg`,
             },
             {
                 name: 'The Alchemist',
                 description: `The Alchemist (Portuguese: O Alquimista) is a novel by Brazilian author Paulo Coelho that was first published in 1988. Originally written in Portuguese, it became a widely translated international bestseller. An allegorical novel, The Alchemist follows a young Andalusian shepherd in his journey to the pyramids of Egypt, after having a recurring dream of finding a treasure there.`,
-                status: '',
+                status: 'Completed',
                 image: `https://upload.wikimedia.org/wikipedia/en/c/c4/TheAlchemist.jpg`,
             }
         ]
@@ -78,9 +78,9 @@ function getUser(request, response) {
     const { email } = request.query;
 
     User.find({ email : email }, function (err, result) {
-        if (err) res.send('didnt work');
-        console.log(result);
-        response.send(result);
+        // if (err) response.send('didnt work');
+        console.log(result[0]);
+        response.send(result[0]);
     });
 
 }
