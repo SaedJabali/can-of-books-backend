@@ -86,8 +86,8 @@ app.get('/', (req, res) => {
         const { email } = request.query;
     
         User.find({ email : email }, function (err, result) {
-            // if (err) response.send('didnt work');
-            console.log(result[0]);
+            if (err) response.send('didnt work');
+            // console.log(result);
             response.send(result[0]);
         });
     
@@ -110,10 +110,10 @@ app.post('/books', (req, res) => {
       console.log(req.body);
       const user = result[0];
       user.books.push({
-        name: req.body.books[0].name,
-        description: req.body.books[0].description,
-        status: req.body.books[0].status,
-        image: req.body.books[0].image
+        name: req.body.books.name,
+        description: req.body.books.description,
+        status: req.body.books.status,
+        // image: req.body.books.image
       });
       // save the user
       user.save()
